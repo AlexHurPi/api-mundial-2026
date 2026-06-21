@@ -1,0 +1,3 @@
+# Ignorar los datos de la API para que no queden expuestos en github, estos datos estan en vercel
+Informacion.txt
+*.png

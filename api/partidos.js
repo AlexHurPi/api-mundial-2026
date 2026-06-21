@@ -1,4 +1,9 @@
 // api/partidos.js
+/**
+ ** Este programa es un Backend en Vercel que se encarga de consultar la API de la web https://www.football-data.org/ **
+ ** El objetivo es mostrar los datos del mundial usando la API de (https://www.football-data.org/) **
+ **Se genera un archivo JSON con los datos del mundial.
+*/
 export default async function handler(req, res) {
   // 1. Configurar los permisos CORS
   res.setHeader('Access-Control-Allow-Origin', 'https://alexhurpi.github.io'); // Solo permite tu web
@@ -11,10 +16,10 @@ export default async function handler(req, res) {
     return;
   }
 
-  const API_TOKEN = process.env.API_TOKEN;
-  const API_URL = 'https://api.football-data.org/v4/competitions/WC/matches';
+  const API_TOKEN = process.env.API_TOKEN; // esta es la clave de la api, queda guardada en el servidor de vercel para que no se vea
+  const API_URL = 'https://api.football-data.org/v4/competitions/WC/matches';// esta es la url de la api
 
-  res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate');
+  res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate');
 
   try {
     const response = await fetch(API_URL, {
