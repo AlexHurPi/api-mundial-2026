@@ -7,7 +7,7 @@
 export default async function handler(req, res) {
   // 1. Configurar los permisos CORS
   //res.setHeader('Access-Control-Allow-Origin', 'https://alexhurpi.github.io'); // Solo permite tu web
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Permite cualquier origen en github o cloudflare
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Permite cualquier origen ya sea local o en github o cloudflare
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
   const API_TOKEN = process.env.API_TOKEN; // esta es la clave de la api, queda guardada en el servidor de vercel para que no se vea
   const API_URL = 'https://api.football-data.org/v4/competitions/WC/matches';// esta es la url de la api
 
-  res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate');
+  res.setHeader('Cache-Control', 's-maxage=20, stale-while-revalidate');
 
   try {
     const response = await fetch(API_URL, {
