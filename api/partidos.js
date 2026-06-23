@@ -6,7 +6,8 @@
 */
 export default async function handler(req, res) {
   // 1. Configurar los permisos CORS
-  res.setHeader('Access-Control-Allow-Origin', 'https://alexhurpi.github.io'); // Solo permite tu web
+  //res.setHeader('Access-Control-Allow-Origin', 'https://alexhurpi.github.io'); // Solo permite tu web
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Permite cualquier origen en github o cloudflare
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
