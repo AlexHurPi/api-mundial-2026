@@ -20,7 +20,7 @@ export default async function handler(req, res) {
   const API_TOKEN = process.env.API_TOKEN; // esta es la clave de la api, queda guardada en el servidor de vercel para que no se vea
   const API_URL = 'https://api.football-data.org/v4/competitions/WC/matches';// esta es la url de la api
 
-  res.setHeader('Cache-Control', 's-maxage=20, stale-while-revalidate');
+  res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
 
   try {
     const response = await fetch(API_URL, {
